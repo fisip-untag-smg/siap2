@@ -10,4 +10,4 @@ nixPkgs = [
 ]
 
 [start]
-cmd = "bash -c 'php artisan migrate:fresh && php artisan cache:clear && php artisan storage:link && php artisan icons:cache && php artisan optimize && echo \"Laravel ready fi di road!\" && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)'"
+cmd = "bash -c 'php artisan migrate && php artisan cache:clear && php artisan storage:link && php artisan icons:cache && php artisan optimize && echo \"Laravel ready fi di road!\" && node /assets/scripts/prestart.mjs /assets/nginx.template.conf /nginx.conf && (php-fpm -y /assets/php-fpm.conf & nginx -c /nginx.conf)'"
