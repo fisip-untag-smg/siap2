@@ -2,6 +2,8 @@
 
 namespace App\Filament\Resources\KartuTandaPenduduks\Tables;
 
+use App\Models\KartuTandaPenduduk;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
@@ -69,6 +71,12 @@ class KartuTandaPenduduksTable
             ])
             ->recordActions([
                 EditAction::make(),
+                Action::make('lihat_ktp')
+                    ->label('Lihat KTP')
+                    ->icon('heroicon-o-eye')
+                    ->url(fn (KartuTandaPenduduk $record): string => route('ktp.view', ['kartuTandaPenduduk' => $record->id]))
+                    ->openUrlInNewTab()
+                    ->color('primary'),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
